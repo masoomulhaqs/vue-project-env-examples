@@ -1,4 +1,4 @@
-# vue-project-env-examples
+# Vue project with ENV examples
 
 ## Project setup
 ```
@@ -10,15 +10,32 @@ yarn install
 yarn serve
 ```
 
+With staging mode:
+```
+yarn serve --mode staging
+```
+
+With production mode:
+```
+yarn serve --mode production
+```
+
 ### Compiles and minifies for production
 ```
 yarn build
 ```
 
-### Lints and fixes files
+With staging mode:
 ```
-yarn lint
+yarn build --mode staging
+```
+
+With production mode:
+```
+yarn build --mode production
 ```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Sample by [Masoom S](https://masoomulhaq.com/)

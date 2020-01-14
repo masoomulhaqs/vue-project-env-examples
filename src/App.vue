@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ env.VUE_APP_TITLE || 'Welcome' }}</h1>
+    <p>You are in <strong>{{ env.NODE_ENV }}</strong> environment.</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Key</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(value, key) in env" :key="key">
+          <td>{{ key }}</td>
+          <td>{{ value }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  computed: {
+    env() {
+      return process.env;
+    }
   }
 }
 </script>
@@ -24,5 +38,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  font-size: 14px;
+}
+</style>
+
+<style scoped>
+strong {
+  color: red;
+}
+.table {
+  text-align: left;
+  margin: 2rem auto;
+}
+th, td {
+  padding: .3rem 1rem;
 }
 </style>
